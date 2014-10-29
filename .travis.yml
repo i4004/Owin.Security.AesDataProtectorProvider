@@ -1,0 +1,19 @@
+branches:
+ only:
+  - master
+
+git:
+ depth: 1
+
+language: objective-c
+
+env:
+ global:
+  - EnableNuGetPackageRestore=true
+
+before_install:
+ - wget "http://download.mono-project.com/archive/3.8.0/macos-10-x86/MonoFramework-MDK-3.8.0.macos10.xamarin.x86.pkg"
+ - sudo installer -pkg "MonoFramework-MDK-3.8.0.macos10.xamarin.x86.pkg" -target /
+
+script:
+ - xbuild /p:Platform="Any CPU" /p:Configuration=Release Owin.Security.AesDataProtectorProvider.sln
