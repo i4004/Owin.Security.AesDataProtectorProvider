@@ -51,8 +51,18 @@
   <ItemGroup>
     <Compile Include="AesDataProtector.cs" />
     <Compile Include="AesDataProtectorProvider.cs" />
+    <Compile Include="AesDataProtectorProviderException.cs" />
     <Compile Include="AppBuilderExtensions.cs" />
+    <Compile Include="CrypticProviders\AesCspFactory.cs" />
+    <Compile Include="CrypticProviders\AesManagedFactory.cs" />
+    <Compile Include="CrypticProviders\IAesFactory.cs" />
+    <Compile Include="CrypticProviders\ISha512Factory.cs" />
+    <Compile Include="CrypticProviders\ISha256Factory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CrypticProviders\Sha256CspFactory.cs" />
+    <Compile Include="CrypticProviders\Sha256ManagedFactory.cs" />
+    <Compile Include="CrypticProviders\Sha512CspFactory.cs" />
+    <Compile Include="CrypticProviders\Sha512ManagedFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Owin.Security.AesDataProtectorProvider.nuspec" />

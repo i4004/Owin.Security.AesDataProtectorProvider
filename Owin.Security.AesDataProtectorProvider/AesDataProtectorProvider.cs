@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Owin.Security.DataProtection;
+using Owin.Security.AesDataProtectorProvider.CrypticProviders;
 
 namespace Owin.Security.AesDataProtectorProvider
 {
@@ -10,14 +10,24 @@ namespace Owin.Security.AesDataProtectorProvider
 	/// </summary>
 	public class AesDataProtectorProvider : IDataProtectionProvider
 	{
+		private readonly ISha512Factory _sha512Factory;
+		private readonly ISha256Factory _sha256Factory;
+		private readonly IAesFactory _aesFactory;
+
 		private string _key;
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="AesDataProtectorProvider"/> class.
+		/// Initializes a new instance of the <see cref="AesDataProtectorProvider" /> class.
 		/// </summary>
+		/// <param name="sha512Factory">The SHA512 factory.</param>
+		/// <param name="sha256Factory">The SHA256 factory.</param>
+		/// <param name="aesFactory">The AES factory.</param>
 		/// <param name="key">The key.</param>
-		public AesDataProtectorProvider(string key = null)
+		public AesDataProtectorProvider(ISha512Factory sha512Factory, ISha256Factory sha256Factory, IAesFactory aesFactory, string key = null)
 		{
+			_sha512Factory = sha512Factory;
+			_sha256Factory = sha256Factory;
+			_aesFactory = aesFactory;
 			_key = key;
 		}
 
@@ -31,6 +41,10 @@ namespace Owin.Security.AesDataProtectorProvider
 				return _key;
 			}
 		}
+		private string HashString(string value)
+		{
+			return HexStringFromBytes(_sha512Factory.Create().ComputeHash(Encoding.ASCII.GetBytes(value))).ToUpper();
+		}
 
 		/// <summary>
 		/// Returns a new instance of IDataProtection for the provider.
@@ -41,14 +55,7 @@ namespace Owin.Security.AesDataProtectorProvider
 		/// </returns>
 		public IDataProtector Create(params string[] purposes)
 		{
-			return new AesDataProtector(SeedHash);
-		}
-
-		private static string HashString(string value)
-		{
-			var alg = SHA512.Create();
-			var result = alg.ComputeHash(Encoding.ASCII.GetBytes(value));
-			return HexStringFromBytes(result).ToUpper();
+			return new AesDataProtector(_sha256Factory, _aesFactory, SeedHash);
 		}
 
 		/// <summary>
@@ -59,11 +66,10 @@ namespace Owin.Security.AesDataProtectorProvider
 		public static string HexStringFromBytes(byte[] bytes)
 		{
 			var sb = new StringBuilder();
-			foreach (byte b in bytes)
-			{
-				var hex = b.ToString("x2");
-				sb.Append(hex);
-			}
+
+			foreach (var b in bytes)
+				sb.Append(b.ToString("x2"));
+
 			return sb.ToString();
 		}
 	}
