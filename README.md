@@ -10,6 +10,7 @@ Owin.Security.AesDataProtectorProvider
 ============
 
 `Owin.Security.AesDataProtectorProvider` - is an AES cryptic provider for OWIN autnetication middlewares.
+It is based on managed and CSP .Net framework providers.
 
 Available at NuGet as [binary package](https://www.nuget.org/packages/Owin.Security.AesDataProtectorProvider/)
 
