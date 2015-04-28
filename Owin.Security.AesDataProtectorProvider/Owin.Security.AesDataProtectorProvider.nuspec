@@ -10,7 +10,11 @@
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>$description$</description>
 		<summary>$description$</summary>
-		<releaseNotes></releaseNotes>
+		<releaseNotes>
+			+ FIPS-compliant hashing vid CSP provider added
+			* Namespace fixed
+			* Upgrade to Microsoft.Owin.Security 3.0.1
+		</releaseNotes>
 		<copyright>Licensed under LGPL</copyright>
 		<language>en-US</language>
 		<tags>OWIN</tags>
