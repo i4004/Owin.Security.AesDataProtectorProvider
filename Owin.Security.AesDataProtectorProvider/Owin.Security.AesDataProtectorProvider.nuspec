@@ -11,7 +11,7 @@
 		<description>$description$</description>
 		<summary>$description$</summary>
 		<releaseNotes>
-			+ FIPS-compliant hashing vid CSP provider added
+			+ FIPS-compliant hashing via CSP provider added
 			* Namespace fixed
 			* Upgrade to Microsoft.Owin.Security 3.0.1
 		</releaseNotes>
