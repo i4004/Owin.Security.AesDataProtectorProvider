@@ -27,6 +27,26 @@ public class Startup
 }
 ```
 
+##### Usage with custom key:
+```csharp
+...
+app.UseAesDataProtectorProvider("my key");
+...
+```
+
+##### Enabling usage with FIPS-compliant CSP provider:
+```csharp
+...
+app.UseAesDataProtectorProvider(null, true);
+...
+```
+or
+```csharp
+...
+app.UseAesDataProtectorProvider("my key", true);
+...
+```
+
 ### Usage example with cookie authentication
 
 
