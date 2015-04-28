@@ -46,7 +46,7 @@ namespace AcspNet.Owin.Security.AesDataProtectorProvider
 
 		private static string HashString(string value)
 		{
-			var alg = SHA512.Create();
+			var alg = new SHA512CryptoServiceProvider();
 			var result = alg.ComputeHash(Encoding.ASCII.GetBytes(value));
 			return HexStringFromBytes(result).ToUpper();
 		}
