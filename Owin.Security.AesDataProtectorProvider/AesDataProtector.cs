@@ -5,9 +5,8 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Owin.Security.DataProtection;
 
-namespace AcspNet.Owin.Security.AesDataProtectorProvider
+namespace Owin.Security.AesDataProtectorProvider
 {
-
 	internal class AesDataProtector : IDataProtector
 	{
 		private readonly byte[] _key;

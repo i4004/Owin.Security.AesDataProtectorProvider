@@ -3,7 +3,7 @@ using System.Security.Cryptography;
 using System.Text;
 using Microsoft.Owin.Security.DataProtection;
 
-namespace AcspNet.Owin.Security.AesDataProtectorProvider
+namespace Owin.Security.AesDataProtectorProvider
 {
 	/// <summary>
 	/// Provider AES DataProtectorProvider
