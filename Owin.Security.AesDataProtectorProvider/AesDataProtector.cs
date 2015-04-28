@@ -14,7 +14,7 @@ namespace AcspNet.Owin.Security.AesDataProtectorProvider
 
 		public AesDataProtector(string key)
 		{
-			using (var sha1 = new SHA256Managed())
+			using (var sha1 = new SHA256CryptoServiceProvider())
 			{
 				_key = sha1.ComputeHash(Encoding.UTF8.GetBytes(key));
 			}
@@ -23,11 +23,11 @@ namespace AcspNet.Owin.Security.AesDataProtectorProvider
 		public byte[] Protect(byte[] data)
 		{
 			byte[] dataHash;
-			using (var sha = new SHA256Managed())
+			using (var sha = new SHA256CryptoServiceProvider())
 			{
 				dataHash = sha.ComputeHash(data);
 			}
-			using (var aesAlg = new AesManaged())
+			using (var aesAlg = new AesCryptoServiceProvider())
 			{
 				aesAlg.Key = _key;
 				aesAlg.GenerateIV();
@@ -50,7 +50,7 @@ namespace AcspNet.Owin.Security.AesDataProtectorProvider
 
 		public byte[] Unprotect(byte[] protectedData)
 		{
-			using (var aesAlg = new AesManaged())
+			using (var aesAlg = new AesCryptoServiceProvider())
 			{
 				aesAlg.Key = _key;
 				using (var msDecrypt = new MemoryStream(protectedData))
@@ -66,7 +66,7 @@ namespace AcspNet.Owin.Security.AesDataProtectorProvider
 						var len = brDecrypt.ReadInt32();
 						var data = brDecrypt.ReadBytes(len);
 						byte[] dataHash;
-						using (var sha = new SHA256Managed())
+						using (var sha = new SHA256CryptoServiceProvider())
 						{
 							dataHash = sha.ComputeHash(data);
 						}
