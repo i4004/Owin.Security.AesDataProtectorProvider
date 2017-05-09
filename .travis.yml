@@ -5,15 +5,11 @@ branches:
 git:
  depth: 1
 
-language: objective-c
+install:
+ - mono .nuget/NuGet.exe restore Owin.Security.AesDataProtectorProvider.sln
 
-env:
- global:
-  - EnableNuGetPackageRestore=true
-
-before_install:
- - wget "http://download.mono-project.com/archive/3.8.0/macos-10-x86/MonoFramework-MDK-3.8.0.macos10.xamarin.x86.pkg"
- - sudo installer -pkg "MonoFramework-MDK-3.8.0.macos10.xamarin.x86.pkg" -target /
+language: csharp
+solution: Owin.Security.AesDataProtectorProvider.sln
 
 script:
- - xbuild /p:Platform="Any CPU" /p:Configuration=Release Owin.Security.AesDataProtectorProvider.sln
+ - xbuild /p:Platform="Any CPU" /p:Configuration=Release Owin.Security.AesDataProtectorProvider.sln /tv:12.0
