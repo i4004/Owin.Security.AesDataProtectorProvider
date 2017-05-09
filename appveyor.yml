@@ -1,0 +1,14 @@
+version: '{build}'
+branches:
+  only:
+  - master
+skip_tags: true
+configuration: Release
+platform: Any CPU
+clone_depth: 1
+before_build:
+- cmd: '".nuget/NuGet.exe" restore Owin.Security.AesDataProtectorProvider.sln'
+build:
+  publish_nuget: true
+  parallel: true
+  verbosity: minimal
