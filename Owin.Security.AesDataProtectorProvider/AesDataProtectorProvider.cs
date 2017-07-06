@@ -41,6 +41,7 @@ namespace Owin.Security.AesDataProtectorProvider
 				return _key;
 			}
 		}
+
 		private string HashString(string value)
 		{
 			return HexStringFromBytes(_sha512Factory.Create().ComputeHash(Encoding.ASCII.GetBytes(value))).ToUpper();
