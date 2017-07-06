@@ -1,0 +1,6 @@
+<NUnitProject>
+	<Settings activeconfig="Release"/>
+	<Config name="Release">
+		<assembly path="../Owin.Security.AesDataProtectorProvider.Tests/bin/Release/Owin.Security.AesDataProtectorProvider.Tests.dll"/>
+	</Config>
+</NUnitProject>
