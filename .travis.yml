@@ -13,3 +13,4 @@ solution: Owin.Security.AesDataProtectorProvider.sln
 
 script:
  - xbuild /p:Platform="Any CPU" /p:Configuration=Release Owin.Security.AesDataProtectorProvider.sln /tv:12.0
+ - .ci/nunit.sh .ci/tests.nunit
