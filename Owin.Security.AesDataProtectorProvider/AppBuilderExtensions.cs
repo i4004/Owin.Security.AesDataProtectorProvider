@@ -12,25 +12,22 @@ namespace Owin.Security.AesDataProtectorProvider
 		private static ISha512Factory _sha512Factory;
 		private static ISha256Factory _sha256Factory;
 		private static IAesFactory _aesFactory;
-		
+
 		/// <summary>
 		/// Gets or sets the SHA512 factory instance.
 		/// </summary>
 		/// <value>
 		/// The SHA512 factory instance.
 		/// </value>
-		/// <exception cref="System.ArgumentNullException">value</exception>
+		/// <exception cref="ArgumentNullException">value</exception>
 		public static ISha512Factory Sha512Factory
 		{
-			get
-			{
-				return _sha512Factory ?? (_sha512Factory = new Sha512ManagedFactory());
-			}
+			get => _sha512Factory ?? (_sha512Factory = new Sha512ManagedFactory());
 
 			set
 			{
 				if (value == null)
-					throw new ArgumentNullException("value");
+					throw new ArgumentNullException(nameof(value));
 
 				_sha512Factory = value;
 			}
@@ -42,18 +39,15 @@ namespace Owin.Security.AesDataProtectorProvider
 		/// <value>
 		/// The SHA256 factory instance.
 		/// </value>
-		/// <exception cref="System.ArgumentNullException">value</exception>
+		/// <exception cref="ArgumentNullException">value</exception>
 		public static ISha256Factory Sha256Factory
 		{
-			get
-			{
-				return _sha256Factory ?? (_sha256Factory = new Sha256ManagedFactory());
-			}
+			get => _sha256Factory ?? (_sha256Factory = new Sha256ManagedFactory());
 
 			set
 			{
-				if(value == null)
-					throw new ArgumentNullException("value");
+				if (value == null)
+					throw new ArgumentNullException(nameof(value));
 
 				_sha256Factory = value;
 			}
@@ -65,18 +59,15 @@ namespace Owin.Security.AesDataProtectorProvider
 		/// <value>
 		/// The AES factory instance.
 		/// </value>
-		/// <exception cref="System.ArgumentNullException">value</exception>
+		/// <exception cref="ArgumentNullException">value</exception>
 		public static IAesFactory AesFactory
 		{
-			get
-			{
-				return _aesFactory ?? (_aesFactory = new AesManagedFactory());
-			}
+			get => _aesFactory ?? (_aesFactory = new AesManagedFactory());
 
 			set
 			{
 				if (value == null)
-					throw new ArgumentNullException("value");
+					throw new ArgumentNullException(nameof(value));
 
 				_aesFactory = value;
 			}
