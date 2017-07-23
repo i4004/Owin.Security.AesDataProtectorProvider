@@ -11,8 +11,7 @@
 		<description>$description$</description>
 		<summary>$description$</summary>
 		<releaseNotes>
-			* Upgrade to Microsoft.Owin 3.1
-			* Upgrade to Microsoft.Owin.Security 3.1
+			* Data length integrity check added
 		</releaseNotes>
 		<copyright>Licensed under LGPL</copyright>
 		<language>en-US</language>
