@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Security;
+using System.Security.Cryptography;
 using Microsoft.Owin.Security.DataProtection;
 using NUnit.Framework;
 using Owin.Security.AesDataProtectorProvider.CrypticProviders;
@@ -41,16 +43,19 @@ namespace Owin.Security.AesDataProtectorProvider.Tests
 		}
 
 		[Test]
-		public void Unprotect_CookieWhichCausesPaddingError_NoExceptionsThrown()
+		public void Unprotect_CookieWhichCausesLengthIntegrityCheckError_ExceptionThrown()
 		{
 			// Assign
+
+			_protector = _protectorProvider.Create();
 
 			var authCookie = "eLnczc+4i2AwIDknRD90lwEg/qVRgh9yi2oGd9QF8mO/UpgYJyQPQN885qx3tshalkwF5UGRqyHgO6e2t0UHxLBqdO/QWzSNFrbxMDV7mlRfCKF9tfv+Oi+iwNwWAQe/AAWzpZMU/jt6aKFEvDlu5lTx9NMQPANZsTIaRAHD8guje8ltGFJeSDQ8FgyMnzZjBMw8FyiiKYbX5ToFSVoPgsf/6bxlev2QiuYnSkqVsIwMwiCFdUC2fFuj2MouFmipi3dNQDxt+Ihjxff1aBNfI0H2AzDRFtpEyxDSdq/kcMXipkZWSHsfJQaPL9HbJivksQnvg2IUiZWOVn8FOABx0IbjJFzWCQWF1KrdYfCjsLPv/N4LZVJqvyolxHiBBkmM6OrM4WI1+yPndLhoVgUPsg==";
 			var protectedData = Convert.FromBase64String(authCookie);
 
-			// Act
+			// Act & Assert
 
-			_protector.Unprotect(protectedData);
+			Assert.That(() => _protector.Unprotect(protectedData),
+				Throws.TypeOf<CryptographicException>());
 		}
 	}
 }
