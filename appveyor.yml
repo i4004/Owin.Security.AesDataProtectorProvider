@@ -5,6 +5,7 @@ branches:
 skip_tags: true
 configuration: Release
 platform: Any CPU
+image: Visual Studio 2017
 clone_depth: 1
 before_build:
 - cmd: '".nuget/NuGet.exe" restore Owin.Security.AesDataProtectorProvider.sln'
