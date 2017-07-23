@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Security;
 using System.Security.Cryptography;
@@ -75,32 +76,47 @@ namespace Owin.Security.AesDataProtectorProvider
 						throw new AesDataProtectorProviderException("Key is null");
 
 					using (var decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV))
-					using (var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read))
-					using (var brDecrypt = new BinaryReader(csDecrypt))
 					{
-						var signature = brDecrypt.ReadBytes(32);
-						var lenSignature = brDecrypt.ReadBytes(32);
+						var csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read);
+						var brDecrypt = new BinaryReader(csDecrypt);
 
-						var len = brDecrypt.ReadInt32();
-
-						byte[] data;
-						byte[] dataHash;
-
-						using (var sha = _sha256Factory.Create())
+						try
 						{
-							var lenHash = sha.ComputeHash(Encoding.UTF8.GetBytes(len.ToString()));
+							var signature = brDecrypt.ReadBytes(32);
+							var lenSignature = brDecrypt.ReadBytes(32);
 
-							if (len < 0 || !lenSignature.SequenceEqual(lenHash))
-								throw new SecurityException("Data length integrity check failed");
+							var len = brDecrypt.ReadInt32();
 
-							data = brDecrypt.ReadBytes(len);
-							dataHash = sha.ComputeHash(data);
+							byte[] data;
+							byte[] dataHash;
+
+							using (var sha = _sha256Factory.Create())
+							{
+								var lenHash = sha.ComputeHash(Encoding.UTF8.GetBytes(len.ToString()));
+
+								if (len < 0 || !lenSignature.SequenceEqual(lenHash))
+									throw new SecurityException("Data length integrity check failed");
+
+								data = brDecrypt.ReadBytes(len);
+								dataHash = sha.ComputeHash(data);
+							}
+
+							if (!dataHash.SequenceEqual(signature))
+								throw new SecurityException("Signature does not match the computed hash");
+
+							return data;
 						}
-
-						if (!dataHash.SequenceEqual(signature))
-							throw new SecurityException("Signature does not match the computed hash");
-
-						return data;
+						finally
+						{
+							try
+							{
+								brDecrypt.Dispose();
+								csDecrypt.Dispose();
+							}
+							catch (CryptographicException)
+							{
+							}
+						}
 					}
 				}
 			}

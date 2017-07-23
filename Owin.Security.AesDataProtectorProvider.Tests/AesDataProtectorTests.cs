@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Security;
-using System.Security.Cryptography;
 using Microsoft.Owin.Security.DataProtection;
 using NUnit.Framework;
 using Owin.Security.AesDataProtectorProvider.CrypticProviders;
@@ -43,7 +42,7 @@ namespace Owin.Security.AesDataProtectorProvider.Tests
 		}
 
 		[Test]
-		public void Unprotect_CookieWhichCausesLengthIntegrityCheckError_ExceptionThrown()
+		public void Unprotect_CookieWhichCausesLengthIntegrityCheckError_SecurityExceptionWithExactMessageThrown()
 		{
 			// Assign
 
@@ -55,7 +54,7 @@ namespace Owin.Security.AesDataProtectorProvider.Tests
 			// Act & Assert
 
 			Assert.That(() => _protector.Unprotect(protectedData),
-				Throws.TypeOf<CryptographicException>());
+				Throws.TypeOf<SecurityException>().With.Message.EqualTo("Data length integrity check failed"));
 		}
 	}
 }
