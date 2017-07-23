@@ -27,12 +27,12 @@ namespace Owin.Security.AesDataProtectorProvider
 		public byte[] Protect(byte[] data)
 		{
 			byte[] dataHash;
-			byte[] dataHashLen;
+			byte[] dataLenHash;
 
 			using (var sha = _sha256Factory.Create())
 			{
 				dataHash = sha.ComputeHash(data);
-				dataHashLen = sha.ComputeHash(Encoding.UTF8.GetBytes(data.Length.ToString()));
+				dataLenHash = sha.ComputeHash(Encoding.UTF8.GetBytes(data.Length.ToString()));
 			}
 
 			using (var aesAlg = _aesFactory.Create())
@@ -49,7 +49,7 @@ namespace Owin.Security.AesDataProtectorProvider
 					using (var bwEncrypt = new BinaryWriter(csEncrypt))
 					{
 						bwEncrypt.Write(dataHash);
-						bwEncrypt.Write(dataHashLen);
+						bwEncrypt.Write(dataLenHash);
 						bwEncrypt.Write(data.Length);
 						bwEncrypt.Write(data);
 					}
@@ -79,14 +79,18 @@ namespace Owin.Security.AesDataProtectorProvider
 					using (var brDecrypt = new BinaryReader(csDecrypt))
 					{
 						var signature = brDecrypt.ReadBytes(32);
-						var signatureLen = brDecrypt.ReadBytes(32);
+						var lenSignature = brDecrypt.ReadBytes(32);
+
 						var len = brDecrypt.ReadInt32();
+
 						byte[] data;
 						byte[] dataHash;
+
 						using (var sha = _sha256Factory.Create())
 						{
 							var lenHash = sha.ComputeHash(Encoding.UTF8.GetBytes(len.ToString()));
-							if (len < 0 || !signatureLen.SequenceEqual(lenHash))
+
+							if (len < 0 || !lenSignature.SequenceEqual(lenHash))
 								throw new SecurityException("Data length integrity check failed");
 
 							data = brDecrypt.ReadBytes(len);
