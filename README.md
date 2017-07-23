@@ -6,7 +6,7 @@ It is based on managed and CSP .Net framework providers.
 
 ## Package status
 
-| Latest version | [![Nuget version](http://img.shields.io/badge/nuget-v1.1.1-blue.png)](https://www.nuget.org/packages/Owin.Security.AesDataProtectorProvider/) |
+| Latest version | [![Nuget version](http://img.shields.io/badge/nuget-v1.1.2-blue.png)](https://www.nuget.org/packages/Owin.Security.AesDataProtectorProvider/) |
 | :------ | :------: |
 | **Dependencies** | [![NuGet Status](http://nugetstatus.com/Owin.Security.AesDataProtectorProvider.png)](http://nugetstatus.com/packages/Owin.Security.AesDataProtectorProvider) |
 
