@@ -1,20 +1,14 @@
 # Owin.Security.AesDataProtectorProvider
 
+[![Nuget Version](https://img.shields.io/nuget/v/Owin.Security.AesDataProtectorProvider)](https://www.nuget.org/packages/Owin.Security.AesDataProtectorProvider)
+[![Nuget Download](https://img.shields.io/nuget/dt/Owin.Security.AesDataProtectorProvider)](https://www.nuget.org/packages/Owin.Security.AesDataProtectorProvider)
+[![AppVeyor branch](https://img.shields.io/appveyor/ci/i4004/owin-security-aesdataprotectorprovider)](https://ci.appveyor.com/project/i4004/owin-security-aesdataprotectorprovider)
+[![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/nuget/Owin.Security.AesDataProtectorProvider)](https://libraries.io/nuget/Owin.Security.AesDataProtectorProvider)
+[![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/i4004/Owin.Security.AesDataProtectorProvider)](https://www.codefactor.io/repository/github/i4004/Owin.Security.AesDataProtectorProvider)
+![Platform](https://img.shields.io/badge/platform-.NET%204.5-lightgrey)
+
 `Owin.Security.AesDataProtectorProvider` - is an AES cryptic provider for OWIN authentication middlewares.
 It is based on managed and CSP .Net framework providers.
-
-## Package status
-
-| Latest version | [![Nuget version](http://img.shields.io/badge/nuget-v1.1.2-blue.png)](https://www.nuget.org/packages/Owin.Security.AesDataProtectorProvider/) |
-| :------ | :------: |
-| **Dependencies** | [![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/nuget/Owin.Security.AesDataProtectorProvider.svg)](https://libraries.io/nuget/Owin.Security.AesDataProtectorProvider) |
-
-## Build status
-
-| Platform | Status of last build |
-| :------ | :------: |
-| **.NET (4.5)** | [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/0vjtl572q4f8nh3r/branch/master?svg=true)](https://ci.appveyor.com/project/i4004/owin-security-aesdataprotectorprovider) |
-| **Mono (Latest)** | [![Travis build status](https://travis-ci.org/i4004/Owin.Security.AesDataProtectorProvider.png?branch=master)](https://travis-ci.org/i4004/Owin.Security.AesDataProtectorProvider) |
 
 ## Examples
 
