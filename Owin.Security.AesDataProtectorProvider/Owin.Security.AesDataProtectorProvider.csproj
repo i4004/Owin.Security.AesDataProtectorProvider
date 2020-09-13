@@ -1,71 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AB43300F-837C-4E1D-BDB8-35165A146CA2}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Owin.Security.AesDataProtectorProvider</RootNamespace>
-    <AssemblyName>Owin.Security.AesDataProtectorProvider</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <DocumentationFile>bin\Release\Owin.Security.AesDataProtectorProvider.xml</DocumentationFile>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.Owin, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.3.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Security.3.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AesDataProtector.cs" />
-    <Compile Include="AesDataProtectorProvider.cs" />
-    <Compile Include="AesDataProtectorProviderException.cs" />
-    <Compile Include="AppBuilderExtensions.cs" />
-    <Compile Include="CrypticProviders\AesCspFactory.cs" />
-    <Compile Include="CrypticProviders\AesManagedFactory.cs" />
-    <Compile Include="CrypticProviders\IAesFactory.cs" />
-    <Compile Include="CrypticProviders\ISha512Factory.cs" />
-    <Compile Include="CrypticProviders\ISha256Factory.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CrypticProviders\Sha256CspFactory.cs" />
-    <Compile Include="CrypticProviders\Sha256ManagedFactory.cs" />
-    <Compile Include="CrypticProviders\Sha512CspFactory.cs" />
-    <Compile Include="CrypticProviders\Sha512ManagedFactory.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Owin.Security.AesDataProtectorProvider.nuspec" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net45</TargetFrameworks>
+		<Authors>Alexander Krylkov</Authors>
+		<Product>Owin.Security.AesDataProtectorProvider</Product>
+		<Description>OWIN AES data protector provider</Description>
+		<Copyright>Licensed under LGPL</Copyright>
+		<Version>1.2</Version>
+		<PackageProjectUrl>https://github.com/i4004/Owin.Security.AesDataProtectorProvider</PackageProjectUrl>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<PackageTags>OWIN</PackageTags>
+		<PackageReleaseNotes></PackageReleaseNotes>
+		<OutputPath>bin\Any CPU\$(Configuration)\</OutputPath>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<DocumentationFile>bin\Any CPU\$(Configuration)\$(TargetFramework)\Owin.Security.AesDataProtectorProvider.xml</DocumentationFile>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Owin.Security" Version="3.1.0" />
+	</ItemGroup>
 </Project>

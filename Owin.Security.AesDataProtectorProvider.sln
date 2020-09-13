@@ -1,15 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29324.140
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owin.Security.AesDataProtectorProvider", "Owin.Security.AesDataProtectorProvider\Owin.Security.AesDataProtectorProvider.csproj", "{AB43300F-837C-4E1D-BDB8-35165A146CA2}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F1BC198C-06DF-4851-B5AA-8C7368B1F37D}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Owin.Security.AesDataProtectorProvider.Tests", "Owin.Security.AesDataProtectorProvider.Tests\Owin.Security.AesDataProtectorProvider.Tests.csproj", "{BFE2E96D-C973-4642-887D-E64CEBD32359}"
 EndProject
@@ -30,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {294F74D9-4B5C-4EA7-99A9-CC922684B853}
 	EndGlobalSection
 EndGlobal
