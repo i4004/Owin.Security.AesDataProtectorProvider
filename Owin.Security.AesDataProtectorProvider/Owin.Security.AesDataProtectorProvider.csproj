@@ -9,7 +9,12 @@
 		<PackageProjectUrl>https://github.com/i4004/Owin.Security.AesDataProtectorProvider</PackageProjectUrl>
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<PackageTags>OWIN</PackageTags>
-		<PackageReleaseNotes></PackageReleaseNotes>
+		<PackageReleaseNotes>
+			New
+			* Symbols package added
+			Updates
+			* Microsoft.Owin.Security update to v4.1.1 (#11)
+		</PackageReleaseNotes>
 		<OutputPath>bin\Any CPU\$(Configuration)\</OutputPath>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
