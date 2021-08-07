@@ -1,26 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFrameworks>net45</TargetFrameworks>
-		<Authors>Alexander Krylkov</Authors>
-		<Product>Owin.Security.AesDataProtectorProvider</Product>
-		<Description>OWIN AES data protector provider</Description>
-		<Copyright>Licensed under LGPL</Copyright>
-		<Version>1.2</Version>
-		<PackageProjectUrl>https://github.com/i4004/Owin.Security.AesDataProtectorProvider</PackageProjectUrl>
-		<PublishRepositoryUrl>true</PublishRepositoryUrl>
-		<PackageTags>OWIN</PackageTags>
-		<PackageReleaseNotes>
-			New
-			* Symbols package added
-			Updates
-			* Microsoft.Owin.Security update to v4.1.1 (#11)
-		</PackageReleaseNotes>
 		<OutputPath>bin\Any CPU\$(Configuration)\</OutputPath>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-		<DocumentationFile>bin\Any CPU\$(Configuration)\$(TargetFramework)\Owin.Security.AesDataProtectorProvider.xml</DocumentationFile>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+		<Version>1.2.1</Version>
+
+		<Description>OWIN AES data protector provider</Description>
+		<Product>Owin.Security.AesDataProtectorProvider</Product>
+		<Authors>Alexander Krylkov</Authors>
+		<Copyright>Licensed under LGPL</Copyright>
+		<PackageProjectUrl>https://github.com/i4004/Owin.Security.AesDataProtectorProvider</PackageProjectUrl>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<PackageTags>OWIN</PackageTags>
+
+		<PackageReleaseNotes>See https://github.com/SimplifyNet/Simplify.Web/tree/master/src/Simplify.Web/CHANGELOG.md for details</PackageReleaseNotes>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Owin.Security" Version="4.2.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="CHANGELOG.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 </Project>

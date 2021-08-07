@@ -1,21 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFrameworks>net45</TargetFrameworks>
-		<Authors>Alexander Krylkov</Authors>
-		<Product>Owin.Security.AesDataProtectorProvider</Product>
+
 		<Description>Owin.Security.AesDataProtectorProvider unit tests</Description>
+		<Product>Owin.Security.AesDataProtectorProvider</Product>
+		<Authors>Alexander Krylkov</Authors>
 		<Copyright>Licensed under LGPL</Copyright>
-		<Version>0.2</Version>
 	</PropertyGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\Owin.Security.AesDataProtectorProvider\Owin.Security.AesDataProtectorProvider.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Appveyor.TestLogger" Version="2.0.0" />
-		<PackageReference Include="coverlet.msbuild" Version="3.1.0" />
-		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.0" />
-		<PackageReference Include="NUnit" Version="3.13.2" />
-		<PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
-		<PackageReference Include="Simplify.Extensions" Version="1.2.0" />
+		<PackageReference Include="Appveyor.TestLogger" Version="2.0.*" />
+		<PackageReference Include="coverlet.msbuild" Version="3.1.*" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.*" />
+		<PackageReference Include="NUnit" Version="3.13.*" />
+		<PackageReference Include="NUnit3TestAdapter" Version="4.0.*" />
+		<PackageReference Include="Simplify.Extensions" Version="1.2.*" />
 	</ItemGroup>
 </Project>
