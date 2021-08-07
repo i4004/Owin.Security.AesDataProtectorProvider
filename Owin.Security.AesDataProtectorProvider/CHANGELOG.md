@@ -4,4 +4,4 @@
 
 ### Dependencies
 
-- Microsoft.Owin.Security update to v4.2
+- Microsoft.Owin.Security bump to v4.2
