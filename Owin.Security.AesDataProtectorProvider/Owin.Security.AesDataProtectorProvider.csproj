@@ -6,7 +6,7 @@
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-		<Version>1.2.1</Version>
+		<Version>1.2.2</Version>
 
 		<Description>OWIN AES data protector provider</Description>
 		<Product>Owin.Security.AesDataProtectorProvider</Product>
@@ -16,7 +16,7 @@
 		<PublishRepositoryUrl>true</PublishRepositoryUrl>
 		<PackageTags>OWIN</PackageTags>
 
-		<PackageReleaseNotes>See https://github.com/SimplifyNet/Simplify.Web/tree/master/src/Simplify.Web/CHANGELOG.md for details</PackageReleaseNotes>
+		<PackageReleaseNotes>See https://github.com/i4004/Owin.Security.AesDataProtectorProvider/tree/master/Owin.Security.AesDataProtectorProvider/CHANGELOG.md for details</PackageReleaseNotes>
 	</PropertyGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Owin.Security" Version="4.2.0" />
