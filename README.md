@@ -2,9 +2,7 @@
 
 [![Nuget Version](https://img.shields.io/nuget/v/Owin.Security.AesDataProtectorProvider)](https://www.nuget.org/packages/Owin.Security.AesDataProtectorProvider)
 [![Nuget Download](https://img.shields.io/nuget/dt/Owin.Security.AesDataProtectorProvider)](https://www.nuget.org/packages/Owin.Security.AesDataProtectorProvider)
-[![AppVeyor branch](https://img.shields.io/appveyor/ci/i4004/owin-security-aesdataprotectorprovider/master)](https://ci.appveyor.com/project/i4004/owin-security-aesdataprotectorprovider)
-[![AppVeyor tests (branch)](https://img.shields.io/appveyor/tests/i4004/owin-security-aesdataprotectorprovider/master)](https://ci.appveyor.com/project/i4004/owin-security-aesdataprotectorprovider)
-[![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/nuget/Owin.Security.AesDataProtectorProvider)](https://libraries.io/nuget/Owin.Security.AesDataProtectorProvider)
+[![Build Package](https://github.com/i4004/Owin.Security.AesDataProtectorProvider/actions/workflows/build.yml/badge.svg)](https://github.com/i4004/Owin.Security.AesDataProtectorProvider/actions/workflows/build.yml)[![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/nuget/Owin.Security.AesDataProtectorProvider)](https://libraries.io/nuget/Owin.Security.AesDataProtectorProvider)
 [![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/i4004/Owin.Security.AesDataProtectorProvider)](https://www.codefactor.io/repository/github/i4004/Owin.Security.AesDataProtectorProvider)
 ![Platform](https://img.shields.io/badge/platform-.NET%204.5-lightgrey)
 
