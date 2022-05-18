@@ -1,12 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFrameworks>net45</TargetFrameworks>
-		<OutputPath>bin\Any CPU\$(Configuration)\</OutputPath>
 		<IncludeSymbols>true</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 
-		<Version>1.2.3</Version>
+		<Version>1.2.4</Version>
 
 		<Description>OWIN AES data protector provider</Description>
 		<Product>Owin.Security.AesDataProtectorProvider</Product>
