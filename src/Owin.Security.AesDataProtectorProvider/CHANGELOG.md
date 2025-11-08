@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.5] - 2022-11-08
+
+### Dependencies
+
+- Microsoft.Owin.Security bump to v4.2.3
+
 ## [1.2.4] - 2022-05-18
 
 ### Dependencies
